@@ -38,7 +38,7 @@
   <section class="contact-wrapper">
     <div class="contact-card">
       <form
-        action="https://formspree.io/f/yourFormID"
+        action="https://formspree.io/f/xpwozvlq"
         method="POST"
         id="contactForm"
         class="contact-form"
@@ -58,6 +58,8 @@
           <label for="message">Your Message</label>
         </div>
 
+        <input type="hidden" name="_next" value="https://yourwebsite.com/thankyou.html" />
+
         <button type="submit" class="send-btn">Send Message</button>
       </form>
       <div class="thank-you hidden">
@@ -71,11 +73,9 @@
   <footer>
     <p>© 2025 Cecil’ Pieces</p>
   </footer>
-
-  <script src="js/main.js"></script>
   <script>
     //  Simple confirmation transition
-    const form = document.getElementById("contactForm");
+    const form = document.querySelector("#contactForm");
     const thankYou = document.querySelector(".thank-you");
 
     form.addEventListener("submit", (e) => {
@@ -85,8 +85,8 @@
         form.style.display = "none";
         thankYou.classList.remove("hidden");
         thankYou.classList.add("fade-in");
+        form.submit(); // actually submit the form to Formspree
       }, 600);
-      form.submit(); // enable this once Formspree link is set
     });
   </script>
 </body>
